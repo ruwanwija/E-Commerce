@@ -1,0 +1,6 @@
+node_modules
+.env
+dist/
+
+EjWRKqek1vs8bYDn
+mongodb+srv://ruwanwijayasundara:<db_password>@cluster0.c1nqu.mongodb.net/
