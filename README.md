@@ -44,6 +44,22 @@
 6.Create the notfound page 
 
 ##  Implementing auth logic
+1.Create a common component to all users firstly redirect,although in the check-auth file to authenticate the use
+    1.1 if user access the page 
+        1.1.1 if user not authenticate redirect to the login page
+        1.1.2 if user is authenticate and user role is "admin" redirect to the admin dashboard
+        1.1.3 if user is authenticate and user role is not admin redirect to the shop home page
+    
+    1.2 if user is not login user redirect to the login page
+
+    1.3 if user is authenticate and user is "admin" redirect to the admin dashboard 
+    1.4 if user is authenticate and user is not "admin" redirect to the shop home page
+    1.5 if user is authenticate and user is not a "admin" also who can try to access the admin perspective redirect to the unauth-page
+    1.6 if user is authenticate and user is "admin" also who can try to access the shop perspective redirect to the admin dashboard
+
+2.After add the isAuthenticated is false and user is null in the app.jsx file,Then wrap the auth elemnts in the login function, admin and shop function
+
+## Sign up and sign in page implementation
 
 
 
@@ -52,6 +68,11 @@
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
 Outlet- The Outlet serves as a placeholder where the components associated with the child routes will be rendered.(ex:auth/login,auth/register)
 Main-Main component is not mandatory, but it aligns with good practices in web development, improving both user experience and code maintainability. 
+Navigate - Navigate is used for redirection
+useLocation -  useLocation is used to access the current route's information (URL details)
+
+###### Props ######
+children - children is a prop that lets you pass and render any JSX or components inside the CheckAuth component
 
 ###### Important ######
 layout-In the create layout can re-usability in the domain(ex:auth/login,auth/register)
