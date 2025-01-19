@@ -35,3 +35,23 @@
     "dev":"nodemon server.js"] package.json file in the server
 12.Setup the tailwind CSS using shadcn
 
+## Creating pages and layout
+1.Create Redux Store with authorization
+2.Create login and register page
+3.Create a shopping view and admin view in the pages and components
+4.Create the admin pages (dashboard,features,orders,products) and admin components(layout,header,sidebar).
+5.Create the shopping pages(home,listing,checkout,account) and shopping components (layout,header).
+6.Create the notfound page 
+
+##  Implementing auth logic
+
+
+
+
+###### Components ########
+Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
+Outlet- The Outlet serves as a placeholder where the components associated with the child routes will be rendered.(ex:auth/login,auth/register)
+Main-Main component is not mandatory, but it aligns with good practices in web development, improving both user experience and code maintainability. 
+
+###### Important ######
+layout-In the create layout can re-usability in the domain(ex:auth/login,auth/register)
