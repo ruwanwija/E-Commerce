@@ -81,6 +81,17 @@
     6.add the controller functions to using jwt in auth-controller
     7.add the authentication routes(register/login/logout/middle auth) to the auth-route file
 
+## Admin view header and sidebar component
+# Header
+    1.Add the two buttons lucide-react using on one is hamber icon and second one is logout button
+
+# Sidebar
+    1.Fistly wrap the function using Fragment after add this icon "ChartSpline"
+    2,Create a navigation to the admin dashboard link and create other components in the admin sidebar
+    3.Style the admin sidebar
+    4.Update the Admin Sidebar to responsive using shadcn sheet uis
+    
+
 
 
 ###### Components ########
@@ -89,6 +100,7 @@ Outlet- The Outlet serves as a placeholder where the components associated with 
 Main-Main component is not mandatory, but it aligns with good practices in web development, improving both user experience and code maintainability. 
 Navigate - Navigate is used for redirection
 useLocation -  useLocation is used to access the current route's information (URL details)
+Fragment - Fragment is a lightweight component that allows you to group a list of children elements without adding extra nodes to the DOM. It’s useful when you need to return multiple elements from a component without introducing unnecessary wrapper elements, such as <div>, which could affect layout or styling.
 
 ###### Props ######
 children - children is a prop that lets you pass and render any JSX or components inside the CheckAuth component
