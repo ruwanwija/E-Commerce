@@ -13,14 +13,25 @@ import ShoppingHome from "./pages/shopping-view/home";
 import ShoppingListing from "./pages/shopping-view/listing";
 import ShoppingAccount from "./pages/shopping-view/account";
 import ShoppingCheckout from "./pages/shopping-view/checkout";
-import CheckAuth from "./components/shopping-view/common/check-auth";
-import { use } from "react";
+import CheckAuth from "./components/common/check-auth";
+import { use, useEffect } from "react";
 import UnauthPage from "./pages/unauth-page";
+import {useDispatch, useSelector } from "react-redux";
+import { checkAuth } from "./store/auth-slice";
+import { Skeleton } from "./components/ui/skeleton";
 
 function App() {
 
-  const isAuthenticated = false;
-  const user = null;
+
+  const {user,isAuthenticated,isLoading} = useSelector(state=>state.auth)
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(checkAuth())
+  },[dispatch])
+
+  if(isLoading) return <Skeleton className="w-[800px] bg-black h-[600px]" />
+
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       {/* Routing Implementation */}

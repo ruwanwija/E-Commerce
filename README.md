@@ -60,7 +60,26 @@
 2.After add the isAuthenticated is false and user is null in the app.jsx file,Then wrap the auth elemnts in the login function, admin and shop function
 
 ## Sign up and sign in page implementation
+# Client Side 
+    1.Install a form dependency from the shadcn ui 
+    2.Create a form.jsx file in the common folder
+    3.Create a config file and add the index.jsx file and it include the register form data (name,label,placeholder,componentType type)
+    4.Create a form..jsx file to create a reuseable form and create a register form in register.jsx file 
+    5.Create a login form in login.jsx 
+-----------------------------------------------------------------------------------------------------------------------------------------
+    6.handle the http request to backend and front end using axios in auth-slice.jsx file 
+    7.Add the dispatch function to the register and login pages on redux to manage the state in registration and login
+    8.Add the toast messages using shadcn ui toast messages 
 
+# Server Side
+    1.Create the models,controllers and routes folders 
+    2.Create a User.js in the route folder it includes the user schema in the registration and login 
+    3.Then create a auth-controller to control the authentication process under registration,login and logout
+    4.Create a route for the registration and attach the controller
+    5.Add the auth router in the server.js file  
+-----------------------------------------------------------------------------------------------------------------------------------------
+    6.add the controller functions to using jwt in auth-controller
+    7.add the authentication routes(register/login/logout/middle auth) to the auth-route file
 
 
 
@@ -76,3 +95,33 @@ children - children is a prop that lets you pass and render any JSX or component
 
 ###### Important ######
 layout-In the create layout can re-usability in the domain(ex:auth/login,auth/register)
+dispatch - dispatch function is used with state management libraries like Redux. It allows you to trigger actions to update the state in a centralized Redux store.
+payload-payload refers to the data that is sent with an action or API request to update the state or perform some operation.
+    Usage:  In Redux Action
+            In Redux Toolkit
+            In Api Call
+            Handle in Reducer
+
+            Key Points to Understand:
+                What is a Payload?
+                    It is the data you send along with an action or request for processing.
+                    Typically includes relevant information such as form data, user input, or API responses.
+                
+                Where is it Used?
+                    In Redux actions and reducers.
+                    In API requests (POST, PUT, DELETE, etc.).
+
+                How is it Accessed?
+                    Inside Redux reducers via action.payload.
+                    On the server, as part of the request body or parameters.
+
+### form.jsx file ###
+The CommonForm component is a generic form builder that:
+    Dynamically renders form fields based on the configuration provided in the formControls prop.
+    Manages form state through the formData and setFormData props.
+    Supports different types of input fields, including:
+        Input fields (text, password, etc.).
+        Dropdown Selects (select).
+        Textareas.
+        Handles form submission via the onSubmit prop.
+    Includes a customizable submit button with properties like buttonText and isBtnDisabled.
