@@ -124,6 +124,12 @@
     5.Add product tile card into the products.jsx file
     6.Create a edt funtion and delete function of the product
 
+## Shopping view header component implementation
+    1.Design the header with responsive
+    2.Create a shopping view header menu items in the index.js file in the config folder
+    3.Create a menubar with config folder index.js file
+    4.Create a header rightside with login user,logout function with username 
+
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
 Outlet- The Outlet serves as a placeholder where the components associated with the child routes will be rendered.(ex:auth/login,auth/register)
