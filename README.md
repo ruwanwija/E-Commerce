@@ -91,8 +91,38 @@
     3.Style the admin sidebar
     4.Update the Admin Sidebar to responsive using shadcn sheet uis
     
+## Admin view products page - create new product and listing
+## Product Page (form)
+# Client Side
+    1.Add the "Add New Product" button to the products page 
+    2.Create a add new product form data in the index.js  file in the config folder
+    3.Create a shadcn ui sheet in the product page and create a form
+    4.Then Create a image-upload.jsx file in the admin-view folder
+    5.add the "Upload Image" label and connect it to the products.jsx file
+    6.Set the add image and remove image functions
+-----------------------------------------------------------------------------------------------------------------------------------------
+    7.implement the backend with the upload image 
 
+# Server
+    1.Create a clodany account and add the cloudanary dependencies 
+    2.Create a cloudanary config file and add the name,api key and secret key in the codanary account also handle the function using multer
+    3.Create a product controller file in the controller folder and implement the logic
+    4.Create product route file in the routes folder and implement the logic
+    5.Add the server.js file to the image upload router
 
+## Product page
+# Server
+    1.Create a product model in the model folder
+    2.The implement the logic in add new product,fetch all product,edit product and delete product in the products-controller file in the controller folder
+    3.Add the above all routers in the products-routers file
+
+# Client
+    1.Create a product-slice in the store folder
+    2.Create a backend pass form data process in the index.js file in the product-slice folder
+    3.Then link a product-slice in the store.js file
+    4.Create a product-tile.jsx in admin-view component for build the product card
+    5.Add product tile card into the products.jsx file
+    6.Create a edt funtion and delete function of the product
 
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
@@ -101,6 +131,7 @@ Main-Main component is not mandatory, but it aligns with good practices in web d
 Navigate - Navigate is used for redirection
 useLocation -  useLocation is used to access the current route's information (URL details)
 Fragment - Fragment is a lightweight component that allows you to group a list of children elements without adding extra nodes to the DOM. It’s useful when you need to return multiple elements from a component without introducing unnecessary wrapper elements, such as <div>, which could affect layout or styling.
+useRef - useRef is a hook that allows you to create a mutable reference that persists across re-renders.
 
 ###### Props ######
 children - children is a prop that lets you pass and render any JSX or components inside the CheckAuth component
