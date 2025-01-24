@@ -155,6 +155,16 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
     4.Create a filter controller function on product controller
 
+## Shopping view product details dialog
+# Client 
+    1.Create a get product slice in product-slice file
+    2. Create a get product slice function in the product tile file
+    3.Then connect the get product tile function into the listing file
+    4.THen create product details file and design the product details page after connect the listing page
+
+# Server
+    1.Create a get product details controller in products-controller file
+    2.Create a route for the get product details in product-router file
     
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
