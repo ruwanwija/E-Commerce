@@ -130,6 +130,32 @@
     3.Create a menubar with config folder index.js file
     4.Create a header rightside with login user,logout function with username 
 
+## Shopping view product listing page
+# Client
+    1.Create a fiterl.jsx component in the shoping-view
+    2.Product Filter Category and brand
+    3.Link the filter with product listing page
+    4.Add the category data into config folder
+    5.Add the chadcn checkbox and style the product filter component page
+    6.Add the sort by icon and add the sort data in the config folder after get the listing page
+    7.Create a product-tile.jsx to create a product card in shopping-view and add the product listing file
+-----------------------------------------------------------------------------------------------------------------------------------------
+    8.Create a shop slice file and create a shop slice
+    9.Add the product slice file in to the store file and product listing page
+    10.Add the categoryOptionMap and brandOptionMap in the config file 
+    11.Then set the product tile file to get the products and brand from the config file
+    12.Create the filter function uing [GetProductDetails function]
+    13.Then create a filter url function on filter file
+
+
+# Server
+    1.Create product-controller.js file in the shop folder
+    2.Create products-routes.js file in the route folder and add the product controller in to the product routes
+    3.Add the product routes file in to the server file
+-----------------------------------------------------------------------------------------------------------------------------------------
+    4.Create a filter controller function on product controller
+
+    
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
 Outlet- The Outlet serves as a placeholder where the components associated with the child routes will be rendered.(ex:auth/login,auth/register)
