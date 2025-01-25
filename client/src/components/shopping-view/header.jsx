@@ -14,6 +14,9 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { logoutUser } from "@/store/auth-slice";
+import UserCartWrapper from "./cart-wrapper";
+import { useEffect, useState } from "react";
+import { fetchCartItems } from "@/store/shop/cart-slice";
 
 function MenuItems() {
   return (
@@ -33,29 +36,40 @@ function MenuItems() {
 
 function HeaderRightContent() {
   const { user } = useSelector((state) => state.auth);
+  const { cartItems = [] } = useSelector((state) => state.ShoppingCart || { cartItems: [] });
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [openCartSheet, setOpenCartSheet] = useState(false);
 
   function handleLogout() {
     dispatch(logoutUser());
   }
 
+  useEffect(() => {
+    if (user?.id) {
+      dispatch(fetchCartItems(user.id));
+    }
+  }, [dispatch, user?.id]);
+
   return (
     <div className="flex lg:items-center lg:flex-row flex-col gap-4">
-      <Button
+      <Sheet open={openCartSheet} onOpenChange={() => setOpenCartSheet(false)}>
+        <Button
           onClick={() => setOpenCartSheet(true)}
           variant="outline"
           size="icon"
           className="relative"
         >
-        <ShoppingCart className="w-6 h-6" />
-        <span className="sr-only">User cart</span>
-      </Button>
+          <ShoppingCart className="w-6 h-6" />
+          <span className="sr-only">User cart</span>
+        </Button>
+        <UserCartWrapper cartItems={cartItems.length > 0 ? cartItems : []} />
+      </Sheet>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar className="bg-black">
             <AvatarFallback className="bg-black text-white font-extrabold">
-              {user?.userName[0]?.toUpperCase()}
+              {user?.userName?.[0]?.toUpperCase()}
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
@@ -76,6 +90,7 @@ function HeaderRightContent() {
     </div>
   );
 }
+
 
 function ShoppingHeader() {
   return (

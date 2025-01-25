@@ -165,6 +165,25 @@
 # Server
     1.Create a get product details controller in products-controller file
     2.Create a route for the get product details in product-router file
+
+## Shopping view cart component implementation
+
+# Server
+    1.Create cart.js models and implement the cart model
+    2.Create cart controller in the shop controller folder and create the controllers
+    3.Create a cart route and connect the cart controller
+    4.Connect the cart router into the server.js file
+
+# Client
+    1.Create a cart slice file in the shop slice folder and implement the cart slice login 
+    2.Connect the store.js file in the cart slice.js file
+    3.Wrap the header button on the Sheet
+    4.Create a cart-wrapper and cart items content component
+    5.Connect the cart wrapper in tp the header file and design the cart-wrapper file
+    6.Create a add to cart function in the product-tile component
+    7.Design and implement the logic in cart item content 
+    8.Create a function when press the "Add to cart" button on product details component add to the cart
+
     
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
