@@ -184,6 +184,13 @@
     7.Design and implement the logic in cart item content 
     8.Create a function when press the "Add to cart" button on product details component add to the cart
 
+## Shopping view home page
+# Client 
+1.Design the home page
+2.Add the filter function when click the category or brand 
+3.Create a function on navigate menu items in header file
+3.Create a add to cart function on the home page 
+
     
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.

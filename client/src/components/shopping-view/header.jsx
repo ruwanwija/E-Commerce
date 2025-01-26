@@ -11,6 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  Label,
 } from "@radix-ui/react-dropdown-menu";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { logoutUser } from "@/store/auth-slice";
@@ -19,16 +20,30 @@ import { useEffect, useState } from "react";
 import { fetchCartItems } from "@/store/shop/cart-slice";
 
 function MenuItems() {
+
+  const navigate = useNavigate()
+
+  function handleNavigate(getCurrentMenuItem){
+    const currentFilter = getCurrentMenuItem.id !== 'home' ?
+    {
+      category:[getCurrentMenuItem.id]
+    }:null
+
+    sessionStorage.setItem('filters',JSON.stringify(currentFilter))
+      navigate(getCurrentMenuItem.path);
+    
+  }
   return (
     <nav className="flex flex-col mb-3 lg:items-center gap-6 lg:flex-row">
       {shoppingViewHeaderMenuItems.map((MenuItem) => (
-        <Link
-          className="text-sm font-medium"
+        <Label 
+          onClick={()=>handleNavigate(MenuItem)}
+          className="text-sm font-medium cursor-pointer"
           key={MenuItem.id}
           to={MenuItem.path}
         >
           {MenuItem.label}
-        </Link>
+        </Label>
       ))}
     </nav>
   );
