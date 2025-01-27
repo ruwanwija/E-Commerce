@@ -191,6 +191,21 @@
 3.Create a function on navigate menu items in header file
 3.Create a add to cart function on the home page 
 
+## Shopping view account page
+# Server
+1.Create a address model
+2.Create address Controller
+3.Create address route 
+4.Add the address route in to server.js file
+
+# Client
+1.Create address slice
+2.Add address slice in to the store.js
+3.Design the account page
+4.Create a address and orders two component and connect the account page
+5.Add the address content in to config folder
+6.Create address-card component and connect the address component
+
     
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
