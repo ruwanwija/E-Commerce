@@ -206,6 +206,20 @@
 5.Add the address content in to config folder
 6.Create address-card component and connect the address component
 
+##  Shopping view checkout page implementation
+# Client
+1.Design the checkout page
+2.Design the orders page
+3.Create a orders component in the admin view
+4.Design the order page in admin and shopping components
+5.Connect the admin order page with admin orders component
+6.Create order details component at the admin view and connect the order component
+7.Create order details component in the shopping view 
+8.Implement the order details component in the account page order section
+
+
+
+
     
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
