@@ -19,9 +19,10 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     // logic for submitting a review
   };
 
-  const dispatch = useDispatch() 
-  const {user} = useSelector(state=>state.auth)
-  const {toast} = useToast()
+  const dispatch = useDispatch(); 
+  const {user} = useSelector(state=>state.auth);
+  const {cartItems} = useSelector((state)=>state.shopCart);
+  const {toast} = useToast();
 
   function handleAddToCart(getCurrentProductId, getTotalStock) {
     let getCartItems = cartItems.items || [];
@@ -103,7 +104,14 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
             <span className="text-muted-foreground">{productDetails?.rating}</span>
           </div>
           <div className="mt-5 mb-5">
+            {
+              productDetails?.totalStock === 0 ?
+            
+            <Button className="w-full opacity-60 cursor-not-allowed" >Out of Stock</Button>:
+
             <Button className="w-full" onClick={()=>handleAddToCart(productDetails?._id)}>Add to Cart</Button>
+
+          }
           </div>
           <Separator />
           <div className="max-h-[300px] overflow-auto">

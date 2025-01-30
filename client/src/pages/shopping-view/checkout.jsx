@@ -1,12 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import img from '../../assets/account.jpg'
 import Address from '@/components/shopping-view/address';
 import UserCartItemsContent from '@/components/shopping-view/cart-items-content';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { useToast } from "@/components/ui/use-toast";
 
 function ShoppingCheckout() {
 
     const { cartItems } = useSelector((state) => state.shopCart);
+    const { user } = useSelector((state) => state.auth);
+    const{approvalURL }= useSelector(state=>state.shopOrder);
+    const [currentSelectedAddress,setCurrentSelectedAddress]=useState(null);
+    const dispatch = useDispatch();
+    const [isPaymentStart,setIsPaymentStart]=useState(false);
+    const { toast } = useToast();
 
     const totalCartAmount =
     cartItems && cartItems.item && cartItems.item.length > 0
@@ -21,6 +29,70 @@ function ShoppingCheckout() {
         )
       : 0;
 
+      function handleInitiatePaypalPayment() {
+        if (cartItems.length === 0) {
+          toast({
+            title: "Your cart is empty. Please add items to proceed",
+            variant: "destructive",
+          });
+    
+          return;
+        }
+        if (currentSelectedAddress === null) {
+          toast({
+            title: "Please select one address to proceed.",
+            variant: "destructive",
+          });
+    
+          return;
+        }
+    
+        const orderData = {
+          userId: user?.id,
+          cartId: cartItems?._id,
+          cartItems: cartItems.items.map((singleCartItem) => ({
+            productId: singleCartItem?.productId,
+            title: singleCartItem?.title,
+            image: singleCartItem?.image,
+            price:
+              singleCartItem?.salePrice > 0
+                ? singleCartItem?.salePrice
+                : singleCartItem?.price,
+            quantity: singleCartItem?.quantity,
+          })),
+          addressInfo: {
+            addressId: currentSelectedAddress?._id,
+            address: currentSelectedAddress?.address,
+            city: currentSelectedAddress?.city,
+            pincode: currentSelectedAddress?.pincode,
+            phone: currentSelectedAddress?.phone,
+            notes: currentSelectedAddress?.notes,
+          },
+          orderStatus: "pending",
+          paymentMethod: "paypal",
+          paymentStatus: "pending",
+          totalAmount: totalCartAmount,
+          orderDate: new Date(),
+          orderUpdateDate: new Date(),
+          paymentId: "",
+          payerId: "",
+        };
+    
+        dispatch(createNewOrder(orderData)).then((data) => {
+          console.log(data, "sangam");
+          if (data?.payload?.success) {
+            setIsPaymemntStart(true);
+          } else {
+            setIsPaymemntStart(false);
+          }
+        });
+      }
+    
+      if (approvalURL) {
+        window.location.href = approvalURL;
+      }
+  
+
     return ( 
         <div className="flex flex-col">
             <div className="relative h-[300px] w-full overflow-hidden">
@@ -30,7 +102,7 @@ function ShoppingCheckout() {
                 />
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 p-5'>
-                <Address/>
+                <Address setCurrentSelectedAddress = {setCurrentSelectedAddress}/>
                 <div className='flex flex-col gap-4'>
                     {
                         cartItems && cartItems.item && cartItems.length > 0 ?
@@ -43,7 +115,7 @@ function ShoppingCheckout() {
                     </div>
                 </div>
                 <div className='mt-4 w-full'>
-                    <Button className="w-full">Checkout with Paypal</Button>
+                    <Button onClick = {handleInitiatePaypalPayment} className="w-full">Checkout with Paypal</Button>
                 </div>
                 </div>
             </div>

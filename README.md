@@ -216,11 +216,27 @@
 6.Create order details component at the admin view and connect the order component
 7.Create order details component in the shopping view 
 8.Implement the order details component in the account page order section
+-----------------------------------------------------------------------------------------------------------------------------------------9.Create a order slice and connect it to the redux store
+10.Add the paypal function on the checkout page
+11.Create a paypal return page on shop view
+12.Add the paypal return page on app.jsx
+---------------------------------------------------------------------------------------------------------------------------------------- 
+13.Create payment-success page and add the app.jsx 
+-----------------------------------------------------------------------------------------------------------------------------------------14.Create Order slice on admin view and connect the redux store 
+
+# Server    
+1.Create order model
+2.Setup the paypal on backend 
+3.Create order controller
+4.Create order route
+5.Add the order router into main server
+-----------------------------------------------------------------------------------------------------------------------------------------6.Create capture payment on the order-controller
+7.Update the order route with capture payment controller
+-----------------------------------------------------------------------------------------------------------------------------------------8.Create Order controller on admin view
+9.Create order route onn admin view
+10.Connect the order router in main server
 
 
-
-
-    
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
 Outlet- The Outlet serves as a placeholder where the components associated with the child routes will be rendered.(ex:auth/login,auth/register)
