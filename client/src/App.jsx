@@ -39,6 +39,10 @@ function App() {
     <div className="flex flex-col overflow-hidden bg-white">
       {/* Routing Implementation */}
       <Routes>
+        <Route 
+        path="/" 
+        element = {<CheckAuth>
+        </CheckAuth>}/>
         <Route path="/auth" element={
           <CheckAuth isAuthenticated={isAuthenticated} user={user}>
             <AuthLayout />

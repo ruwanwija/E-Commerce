@@ -248,6 +248,29 @@
 3.Create and design search page
 4.Add the search page on app.jsx
 
+## Shopping view review functionality implementation
+# Server
+1.Create a review model
+2.Create review Controller
+3.Create review router and connect to the main server
+
+# client
+1.Create review slice and connect the store
+2.Create star rating common component
+3.Connect the product details component
+
+## Create admin dashboard page
+# Server
+1.Create features model
+2.Create Feature controller in the common folder
+3.Create a common route folder and add the feature controller in this feature route
+4.Add the features route in the main server
+
+
+# Client
+1.Design a dashboard in admin view
+2.Create common slice on admin view
+
 
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.

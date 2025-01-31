@@ -5,8 +5,8 @@ import {Label} from '../ui/label'
 
 function AddressCard(addressInfo,handleDeleteAddress,handleEditAddress,setCurrentSelectedAddress) {
     return ( 
-        <Card onClick={setCurrentSelectedAddress? ()=>setCurrentSelectedAddress(addressInfo):null}>
-            <CardContent className="grid p-4 gap-4">
+        <Card className="cursor-pointer" onClick={setCurrentSelectedAddress? ()=>setCurrentSelectedAddress(addressInfo):null}>
+            <CardContent className={`${selectedID === addressInfo?._id ? 'border-black':''}grid p-4 gap-4`}>
                 <Label>Address:{addressInfo?.address}</Label>
                 <Label>City:{addressInfo?.city}</Label>
                 <Label>Pincode:{addressInfo?.pincode}</Label>
