@@ -236,6 +236,18 @@
 9.Create order route onn admin view
 10.Connect the order router in main server
 
+## Shopping view search page implementation
+# Server
+1.Create search controller
+2.Create search route
+3.Add the search route in main server
+
+# Client
+1.Create search slice in shop view
+2.Add the search tab in the header
+3.Create and design search page
+4.Add the search page on app.jsx
+
 
 ###### Components ########
 Provider - The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
