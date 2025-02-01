@@ -1,5 +1,5 @@
 import CommonForm from "@/components/common/form";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { registerFormControls } from "@/config";
 import { registerUser } from "@/store/auth-slice";
 import { useState } from "react";
@@ -24,15 +24,12 @@ function AuthRegister() {
       if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
-          className: "bg-green-500 text-white", 
-          duration: 5000, 
         });
         navigate("/auth/login");
       } else {
         toast({
           title: data?.payload?.message,
-          className: "bg-red-500 text-white", 
-          duration: 5000, 
+          variant: "destructive",
         });
       }
     });

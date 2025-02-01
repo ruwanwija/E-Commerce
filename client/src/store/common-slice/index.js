@@ -1,51 +1,52 @@
-import { createSlice } from '@reduxjs/toolkit'
-import axios from 'axios';
-import { resetOrderDetails } from '../order-slice';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-    isLoading : false,
-    featureImageList : []
-}
+  isLoading: false,
+  featureImageList: [],
+};
 
-export const getFeatureImage = createAsyncThunk(
-    "/products/getFeatureImage",
-    async () => {
-      const result = await axios.get(
-        `http://localhost:5000/api/common/feature/get`
-      );
-  
-      return result?.data;
-    }
-  );
+export const getFeatureImages = createAsyncThunk(
+  "/order/getFeatureImages",
+  async () => {
+    const response = await axios.get(
+      `http://localhost:5000/api/common/feature/get`
+    );
 
-  export const addFeatureImage = createAsyncThunk(
-    "/products/addFeatureImage",
-    async (image) => {
-      const result = await axios.post(
-        `http://localhost:5000/api/common/feature/add`,{image}
-      );
-  
-      return result?.data;
-    }
-  );
+    return response.data;
+  }
+);
 
+export const addFeatureImage = createAsyncThunk(
+  "/order/addFeatureImage",
+  async (image) => {
+    const response = await axios.post(
+      `http://localhost:5000/api/common/feature/add`,
+      { image }
+    );
+
+    return response.data;
+  }
+);
 
 const commonSlice = createSlice({
-    name:'commonSlice',
-    initialState,
-    reducers : {},
-    extraReducers : (builder)=>{
-        builder.addCase(getFeatureImage.pending,(state)=>{
-            state.isLoading = true;
-        }).addCase(getFeatureImage.fulfilled,(state,action)=>{
-            state.isLoading = false;
-            state.featureImageList = action.payload.data;
-        }).addCase(getFeatureImage.rejected,(state)=>{
-            state.isLoading = false;
-            state.featureImageList = [];
-        })
-    }
-})
-
+  name: "commonSlice",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getFeatureImages.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getFeatureImages.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.featureImageList = action.payload.data;
+      })
+      .addCase(getFeatureImages.rejected, (state) => {
+        state.isLoading = false;
+        state.featureImageList = [];
+      });
+  },
+});
 
 export default commonSlice.reducer;
